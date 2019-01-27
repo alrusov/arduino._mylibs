@@ -1,0 +1,1 @@
+Set of small functions for Arduino
