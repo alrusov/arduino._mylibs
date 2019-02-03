@@ -10,6 +10,7 @@
 
 void debugInit() {
   debugPort.begin(DEBUG_PORT_BAUDRATE);
+  while(!debugPort);
 }
 
 void debugPrintf(char *format, ...) {
