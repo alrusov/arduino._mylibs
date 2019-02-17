@@ -13,8 +13,8 @@ void debugInit() {
   while(!debugPort);
 }
 
-void debugPrintf(char *format, ...) {
-  char buf[80];
+void debugPrintf(const char *format, ...) {
+  char buf[256];
   va_list ap;
   va_start(ap, format);
   vsnprintf(buf, sizeof(buf), format, ap);
