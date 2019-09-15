@@ -3,7 +3,12 @@
 
 #if defined DEBUG
 
-#define debugPort Serial
+#if defined ARDUINO_ESP8266_RELEASE
+#  define debugPort Serial1 // Take data from the D4!
+#else
+#  define debugPort Serial
+#endif
+
 #define DEBUG_PORT_BAUDRATE 115200
 
 #include <stdarg.h>
@@ -11,6 +16,7 @@
 void debugInit() {
   debugPort.begin(DEBUG_PORT_BAUDRATE);
   while(!debugPort);
+  debugPort.write("\n", 1);
 }
 
 void debugPrintf(const char *format, ...) {
