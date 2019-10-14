@@ -29,10 +29,15 @@ void debugPrintf(const char *format, ...) {
   debugPort.print(buf);
 }
 
+#define debugPrint(s) debugPort.print(s)
+#define debugPrintln(s) debugPort.println(s)
+
 #else
 
 #define debugInit() ;
 #define debugPrintf(...) ;
+#define debugPrint(...) ;
+#define debugPrintln(...) ;
 
 #endif
 
